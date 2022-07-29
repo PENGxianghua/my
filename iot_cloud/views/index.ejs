@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/mycss/waterplant.css">
+    
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0 0 0 0;
+            overflow: hidden hidden;
+        }
+
+        body {
+            background: linear-gradient(to bottom, rgb(59, 65, 135) 0%, rgb(71, 122, 164) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="water_plant_bg"></div>
+    <div class="container-fluid">
+        <div class="row div-title">
+            <div class="col text-center">
+                <strong id="time_text" class="time-strong">2022-1-4 19:45</strong>
+            </div>
+            <div class="col-6 text-center">
+                <strong id="title_text" class="title-strong"><%= title %></strong>
+            </div>
+            <div class="col text-center">
+                <div class="div-circle"><button id="closeBtn" class="btn-circle">退出</button></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>温度:<span id="temperature">23</span></h1>
+            </div>
+            <div class="col">
+                <h1>湿度:<span id="humiture">23</span></h1>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="row div-temp div-monitor">
+                    <div class="div-more-row">
+                        <a id="device_temp_more" class="a-more-row" href="javascript:void(0)"
+                            onclick="openmoreHistoryDlg('temp')">
+                            <img class="img-more" src="/public/images/more_icon.png" />
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <div id="div_device1_temp" class="div-1-4"></div>
+                    </div>
+                    <div class="col">
+                        <div id="div_device2_temp" class="div-1-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ">
+               
+
+            </div>
+            <div class="col">
+                <div class="row div-yulv div-monitor">
+                    <div class="div-more-row">
+                        <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('yulv')">
+                            <img class="img-more" src="/public/images/more_icon.png" />
+                        </a>
+                    </div>
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device1_yulv" class="div-1-4 div-battery"></div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device2_yulv" class="div-1-4 div-battery"></div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+               
+    </div>
+
+    
+
+    
+    <script src="/public/jquery/jquery.min.js"></script>
+    <script src="/public/bootstrap/bootstrap.min.js"></script>
+    <script src="/public/echart/echarts.min.js"></script>
+    <script src='/public/echart-liquid/echarts-liquidfill.min.js'></script>
+    <script src='/public/myjs/device_temp_chart.js'></script>
+    <script src='/public/myjs/device_yulv_chart.js'></script>
+   
+
+    <script>
+         var device_temp_charts = new devcie_temp_chart('div_device1_temp', 'div_device2_temp');
+         var device_yulv_charts = new device_yulv_chart('div_device1_yulv', 'div_device2_yulv');
+
+        function getDataShow() {
+            $.ajax({
+                type: 'POST',
+                url: "/v1/restfull",
+                data: { },
+                success: function (data, textStatus) {
+                    if (data.error != 0) {
+                        alert('刷新监控参数失败');
+                        return;
+                    }
+                    var result = data;
+                    device_temp_charts.device1_temp_option.series[0].data = [{ value: result.wendu1, name: '设备11' }]
+                    device_temp_charts.device1_temp_Chart.setOption(device_temp_charts.device1_temp_option);
+                    device_temp_charts.device2_temp_option.series[0].data = [{ value: result.wendu2, name: '设备22' }]
+                    device_temp_charts.device2_temp_Chart.setOption(device_temp_charts.device2_temp_option);
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert('网络或服务器错误');
+                },
+                dataType: "json"
+            });
+        }
+
+
+        function getNowTime() {
+            let now = new Date();
+            let year = now.getFullYear(); //获取完整的年份(4位,1970-????)
+            let month = now.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+            let today = now.getDate(); //获取当前日(1-31)
+            let hour = now.getHours(); //获取当前小时数(0-23)
+            let minute = now.getMinutes(); //获取当前分钟数(0-59)
+            let second = now.getSeconds(); //获取当前秒数(0-59)
+            let nowTime = '';
+            nowTime = year + '-' + fillZero(month) + '-' + fillZero(today) + ' ' + fillZero(hour) + ':' +
+                fillZero(minute) + ':' + fillZero(second);
+            return nowTime;
+        };
+
+        function fillZero(str) {
+            var realNum;
+            if (str < 10) {
+                realNum = '0' + str;
+            } else {
+                realNum = str;
+            }
+            return realNum;
+        }
+
+
+
+        $(function () {
+          
+            //设置时间
+            $("#time_text").text(getNowTime());
+            setInterval(function () {
+                $("#time_text").text(getNowTime());
+            }, 1000);
+            //定时向服务器请求监控数据
+            getDataShow();
+            
+            setInterval(function () {
+                getDataShow();
+            }
+            , 5000);
+
+
+        });
+
+    </script>
+</body>
+
+</html>

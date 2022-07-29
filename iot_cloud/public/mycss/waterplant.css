@@ -1,0 +1,1045 @@
+.div-title {
+    background: rgba(144, 166, 199, 0.15) url('/public/images/title_bg.png') no-repeat center top;
+    ;
+    height: 5em;
+    background-size: 100% 100%;
+    padding-top: 0.5em;
+}
+
+.time-strong {
+    color: rgba(0, 217, 254, 1.0);
+    font-size: 160%;
+}
+
+.title-strong {
+    background: linear-gradient(to bottom, rgb(224, 153, 200), rgb(108, 79, 122));
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 270%;
+}
+
+.water_plant_bg {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/xld.jpg') no-repeat center top;
+    ;
+    margin: auto;
+    width: 95%;
+    height: 100%;
+    left: 3%;
+    top: 10%;
+    background-size: 100% 100%;
+    z-index: -1;
+    position: absolute;
+}
+
+.div-more-row {
+    position: relative;
+    width: 100%;
+    height: 0.1em;
+}
+
+.a-more-row {
+    position: absolute;
+    right: 0.8em;
+    top: -2.2em;
+    height: 1.4em;
+    width: auto;
+}
+
+.img-more {
+    height: inherit;
+    width: auto;
+}
+
+.div-monitor {
+    height: 12.2em;
+    padding-top: 2.5em;
+    padding-bottom: 1.5em;
+}
+
+.div-temp {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/temperature_bg.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-yulv {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/yulv_bg.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-liquid-level {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/liquid_level_bg.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-hp {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/HP_bg.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-flow {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/flow_bg.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-flow-param {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.strong-flow-input {
+    position: absolute;
+    left: 2.0em;
+    top: 2.0em;
+    color: rgb(169, 133, 163);
+    font-size: 200%;
+}
+
+.strong-flow-output1 {
+    position: absolute;
+    left: 6.0em;
+    top: 0.4em;
+    color: rgb(254, 207, 0);
+    font-size: 200%;
+}
+
+.strong-flow-output2 {
+    position: absolute;
+    left: 6.0em;
+    top: 2.5em;
+    color: rgb(254, 135, 0);
+    font-size: 200%;
+}
+
+.img-flow-input {
+    position: absolute;
+    left: 4em;
+    top: 3.8em;
+    height: 1em;
+    width: auto;
+}
+
+.img-flow-output1 {
+    position: absolute;
+    left: 12.0em;
+    top: 0.6em;
+    height: 1em;
+    width: auto;
+}
+
+.img-flow-output2 {
+    position: absolute;
+    left: 12.0em;
+    top: 5.0em;
+    height: 1em;
+    width: auto;
+}
+
+.flow-split-line-horizontal1 {
+    position: absolute;
+    top: 6.5em;
+    left: 3.5em;
+    width: 7em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.flow-split-line-vertical1 {
+    position: absolute;
+    top: 3.5em;
+    left: 10.5em;
+    width: 0.2em;
+    height: 4.2em;
+    background-color: #00d9fe;
+}
+
+.flow-split-line-horizontal2 {
+    position: absolute;
+    top: 3.5em;
+    left: 10.5em;
+    width: 7em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.flow-split-line-horizontal3 {
+    position: absolute;
+    top: 7.7em;
+    left: 10.5em;
+    width: 7em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.turbidity-split-line-horizontal1 {
+    position: absolute;
+    top: 5.1em;
+    left: 2.5em;
+    width: 6em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.turbidity-split-line-vertical1 {
+    position: absolute;
+    top: 2.8em;
+    left: 8.5em;
+    width: 0.2em;
+    height: 2.4em;
+    background-color: #00d9fe;
+}
+
+.turbidity-split-line-horizontal2 {
+    position: absolute;
+    top: 2.8em;
+    left: 8.5em;
+    width: 6em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.turbidity-split-line-vertical2 {
+    position: absolute;
+    top: 2.8em;
+    left: 14.5em;
+    width: 0.2em;
+    height: 4.4em;
+    background-color: #00d9fe;
+}
+
+.turbidity-split-line-horizontal3 {
+    position: absolute;
+    top: 7.1em;
+    left: 14.5em;
+    width: 6em;
+    height: 0.1em;
+    background-color: #00d9fe;
+}
+
+.e_stop_input {
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255, 0);
+    color: white;
+    border: 1px solid white;
+
+}
+
+.e_stop_input:focus {
+    outline: none;
+}
+
+.div-turbidity {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/turbidity_bg.png') no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.div-turbidity-param {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.span-unit {
+    position: absolute;
+    left: 6.0em;
+    top: 1.3em;
+    height: 1.4em;
+    width: auto;
+    color: rgb(15, 167, 221);
+    font-size: 50%;
+}
+
+.strong-turbidity-input {
+    position: absolute;
+    left: 1.8em;
+    top: 1.3em;
+    color: #fe00d4;
+    font-size: 200%;
+}
+
+.strong-turbidity-middle {
+    position: absolute;
+    left: 4.8em;
+    top: 0.1em;
+    color: #fecf00;
+    font-size: 200%;
+}
+
+.strong-turbidity-output {
+    position: absolute;
+    left: 7.6em;
+    top: 2.2em;
+    color: #fe8700;
+    font-size: 200%;
+}
+
+.span-jinkou {
+    position: absolute;
+    left: 5.7em;
+    top: 6.5em;
+    color: rgb(15, 167, 221);
+    font-size: 0.8em;
+}
+
+.span-zhongbu {
+    position: absolute;
+    left: 13.3em;
+    top: 3.7em;
+    color: rgb(15, 167, 221);
+    font-size: 0.8em;
+}
+
+.span-chukou {
+    position: absolute;
+    left: 21em;
+    top: 8.8em;
+    color: rgb(15, 167, 221);
+    font-size: 0.8em;
+}
+
+.div-1-4 {
+    height: 8em;
+    /* max-width: 100%; */
+    margin: 1em auto 0;
+}
+
+.div-battery {
+    width: 6em;
+    padding-bottom: 1em;
+}
+
+.div-liquid {
+    width: 10em;
+    padding-bottom: 1.5em;
+}
+
+.div-pressure-current {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/pressure-current.png') no-repeat center top;
+    ;
+    background-size: 100% 100%;
+}
+
+.div-pressure-curren-param {
+    position: relative;
+    top: .4em;
+    left: .5em;
+    width: 100%;
+    height: 7em;
+}
+
+.pressure-curren-param-box {
+    float: left;
+    width: 13%;
+    height: 100%;
+    margin-left: 3%;
+    background: rgba(12, 85, 196, 0.0) url('/public/images/pressure-current-bg1.png') no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.pressure-curren-param-alarm {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/pressure-current-bg2.png') no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.pressure-curren-img {
+    position: relative;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    width: 2.2em;
+    height: 2.2em;
+}
+
+.gas-img {
+    background: url(/public/images/gas.png);
+    background-size: 100% 100%;
+}
+
+.water-img {
+    background: url(/public/images/water.png);
+    background-size: 100% 100%;
+}
+
+.pump-img {
+    background: url(/public/images/pump.png);
+    background-size: 100% 100%;
+}
+
+.alarm-img {
+    background: url(/public/images/alarm.png);
+    background-size: 100% 100%;
+}
+
+.pressure-curren-value {
+    margin-top: -5%;
+    margin-left: 40%;
+    color: #b388cb;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.alarm-value {
+    color: red;
+}
+
+.alarm-value-unit {
+    color: red;
+}
+
+.value-unit {
+    font-size: 12px;
+}
+
+.pressure-curren-name {
+    margin-top: -5%;
+    margin-left: 42%;
+    color: #4595b3;
+    font-size: 12px;
+}
+
+.div-circle {
+    margin: 0.3em auto;
+    width: 6em;
+    height: 2em;
+    box-sizing: border-box;
+    padding: 0.1em;
+    border-radius: 1em;
+    background-image: linear-gradient(to bottom, rgba(2, 246, 168, 1.0) 0%, rgba(0, 244, 255, 1.0) 100%);
+}
+
+.btn-circle {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: 0;
+    background: rgb(4, 46, 110);
+    font-size: 1em;
+    color: rgb(1, 233, 255);
+    line-height: 1.428571429;
+    /* background-color: rgb(4,46,110);
+    border-radius: 1em;
+    border:0.1em solid;
+    border-image:linear-gradient(to bottom, rgba(2,246,168,1.0) 0%, rgba(0,244,255,1.0) 100%); */
+    /* linear-gradient(to bottom, rgba(2,246,168,1.0) 0%, rgba(0,244,255,1.0) 100%), radial-gradient(at top center, rgba(255,255,255,0.7) 0%, rgba(1,255,170,0.9) 120%); */
+}
+
+.btn-circle:hover {
+    background: rgb(33, 68, 123);
+}
+
+.btn-circle:focus {
+    background: rgb(33, 68, 123);
+}
+
+.div-dlg-head {
+    height: 3.8em;
+    background-image: url('/public/images/dlg-title.png');
+    background-repeat: no-repeat;
+    background-size: 98% 100%;
+    background-color: transparent;
+    background-position-x: left;
+    background-position-y: top;
+}
+
+.modal-content {
+    top: auto;
+    background-color: rgba(29, 104, 219, 1.0);
+    /* border-radius: 10px; */
+    /* background: rgba(255,255,255,0.3); */
+    /* color: white; */
+    /* border: 1px solid rgb(255,255,255,0.2); */
+    /* box-shadow: 0 1px 10px 3px rgb(76, 110, 245,.4); */
+}
+
+.modal-content span {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    height: 3.8em;
+    background-image: url('/public/images/dlg-title.png');
+    background-repeat: no-repeat;
+    background-size: 80% 100%;
+    background-color: transparent;
+    background-position-x: left;
+    background-position-y: top;
+    border: none;
+    /* border-bottom: 2px solid;
+    border-image: linear-gradient(to right,rgb(69, 101, 255,0),rgba(255,255,255,.5), rgb(69, 101, 255,0)) 1; */
+}
+
+.modal-footer {
+    display: block;
+    text-align: center;
+    border: none;
+    /* border-top: 2px solid;
+    border-image: linear-gradient(to right,rgb(69, 101, 255,0),rgba(255,255,255,.5), rgb(69, 101, 255,0)) 1; */
+}
+
+.modal-footer button {
+    height: 30px;
+    line-height: 20px;
+    width: 80px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.modal-fix {
+    width: 400px;
+}
+
+.modal-body {
+    margin-top: 10px;
+    height: auto;
+    display: block;
+    text-align: center;
+}
+
+.div-dlg-content {
+    background-color: rgba(29, 104, 219, 1.0);
+}
+
+.span-dlg-close {
+    color: rgb(255, 255, 255, 1.0);
+}
+
+.h5-dlg-title {
+    color: rgb(1, 233, 255, 1.0);
+}
+
+.a-tab-nav {
+    color: rgb(1, 233, 255, 1.0);
+    text-align: center;
+}
+
+.span-daterangepick {
+    color: rgb(255, 255, 255, 1.0);
+    font-size: 1em;
+}
+
+.div-dlg-chart {
+    height: 15em;
+    width: 100%;
+    /* max-width: 100%; */
+    margin: 0.5em auto 0;
+    background-color: rgb(20, 73, 153, 1.0);
+}
+
+.div-dlg-table {
+    height: 15em;
+    width: 100%;
+    /* max-width: 100%; */
+    margin: 0.5em auto 0;
+    /* background-color:rgb(20,73,153,1.0); */
+}
+
+.div-top-middle-bg {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background: url("/public/images/div-top-middle-bg.png") no-repeat center;
+    background-size: 100%;
+}
+
+.humidity {
+    position: absolute;
+    top: 3.5em;
+    left: 2.5em;
+    width: 4em;
+    height: 4em;
+}
+
+.humidity-value,
+.washing-time-time {
+    margin-bottom: 0;
+    color: #b388cb;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.washing-time-time {
+    margin-left: 5px;
+}
+
+.humidity-name,
+.washing-time-name {
+    color: #4595b3;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: -5px;
+    margin-left: 4px;
+}
+
+.washing-time-name {
+    margin-left: -2px;
+}
+
+.middle-line {
+    position: absolute;
+    top: 4em;
+    left: 5.5em;
+    width: 2px;
+    height: 2em;
+    background-color: #00d9fe;
+}
+
+.washing-time {
+    position: absolute;
+    top: 3.5em;
+    left: 6.5em;
+    width: 4em;
+    height: 4em;
+}
+
+.wash-filter-state {
+    position: relative;
+    top: 4em;
+    left: 11em;
+    width: 25em;
+    height: 2em;
+}
+
+.washing-state1,
+.washing-state2,
+.filtering-state1,
+.filtering-state2 {
+    position: absolute;
+    top: 0em;
+    width: 5.8em;
+    height: 2em;
+
+}
+
+.washing-state1 {
+    left: 0em;
+    background: url("/public/images/washing1.png") no-repeat center;
+    background-size: 100%;
+}
+
+.filtering-state1 {
+    left: 6.5em;
+    background: url("/public/images/filtering2.png") no-repeat center;
+    background-size: 100%;
+}
+
+.washing-state2 {
+    left: 13em;
+    background: url("/public/images/washing3.png") no-repeat center;
+    background-size: 100%;
+}
+
+.filtering-state2 {
+    left: 19.5em;
+    background: url("/public/images/filtering4.png") no-repeat center;
+    background-size: 100%;
+}
+
+.col-7 {
+    text-align: left;
+}
+
+.btn-monitor-ctrl {
+    width: 6.1em;
+    height: 1.7em;
+    border-style: none;
+    border-radius: 0.9em;
+    background-size: 100%;
+    background-color: rgb(4, 46, 110);
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.filtering-state1-ctrl {
+    position: absolute;
+    top: 118px;
+    border-style: none;
+    border-radius: 1em;
+    left: 293px;
+    /* background: url(../images/filtering2.png) no-repeat center;  */
+    background-size: 100%;
+    width: 5.8em;
+    height: 2em;
+}
+
+.btn-monitor-ctrl:hover,
+.filtering-state1-ctrl:hover {
+    border: 1px solid rgb(1, 233, 255, 1.0);
+    /* box-shadow: 1px 1px 1px rgb(52,199,180) 1px; */
+    /* outline: rgb(1,233,255,1.0) solid thin;; */
+}
+
+.btn-monitor-ctrl:focus,
+.filtering-state1-ctrl:focus {
+    border: 1px solid rgb(1, 233, 255, 1.0);
+    outline: 0;
+    /* outline: rgb(1,233,255,1.0) solid thin;; */
+}
+
+.div-dlg-content {
+    line-height: 2;
+    margin: auto;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid rgb(255, 255, 255, 0.2);
+    box-shadow: 0 1px 10px 3px rgb(76, 110, 245, .4);
+}
+
+.span-dlg-close {
+    color: rgb(255, 255, 255, 1.0);
+}
+
+.h5-dlg-title {
+    color: rgb(255, 255, 255);
+}
+
+.a-tab-nav {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 18px;
+    height: 50px;
+}
+
+.a-tab-nav:hover {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.span-daterangepick {
+    display: block;
+    color: rgb(255, 255, 255, 1.0);
+    font-size: 20px;
+    height: 40px;
+    width: 50px;
+
+}
+
+.div-dlg-chart {
+    height: 17em;
+    width: 101%;
+    /* max-width: 100%; */
+    margin: 1em auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-top: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+.div-dlg-table {
+    /* height:20em; */
+    width: 101%;
+    /* max-width: 100%; */
+    margin: 0.5em auto 0;
+    /* background-color:rgb(20,73,153,1.0); */
+    border-radius: 10px;
+
+}
+
+.div-top-middle {
+    position: relative;
+    width: 100%;
+    height: 8.4em;
+    margin-top: 1em;
+    background: url("/public/images/div-top-middle-bg.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.div-monitor-ctrl-line1 {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/remotecontrol-line.png') no-repeat center center;
+    margin: auto;
+    width: 28em;
+    height: 0.6em;
+    left: 1em;
+    top: 0.65em;
+    background-size: 28em 0.6em;
+    z-index: -1;
+    position: absolute;
+}
+
+.div-monitor-ctrl-line2 {
+    background: rgba(12, 85, 196, 0.0) url('/public/images/valve-line.png') no-repeat center center;
+    margin: auto;
+    width: 8em;
+    height: 0.6em;
+    left: 30.3em;
+    top: 0.65em;
+    background-size: 8em 0.5em;
+    z-index: -1;
+    position: absolute;
+}
+
+.btn-monitor-ctrl {
+    /* width:5.1em; */
+    height: 1.7em;
+    border-style: none;
+    border-radius: 0.9em;
+    /* background-size: 5.3em 2.2em; */
+    background-color: rgb(4, 46, 110);
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+
+.btn-monitor-ctrl:hover {
+    border: 1px solid rgb(1, 233, 255, 1.0);
+    /* box-shadow: 1px 1px 1px rgb(52,199,180) 1px; */
+    /* outline: rgb(1,233,255,1.0) solid thin;; */
+}
+
+.btn-info {
+    background-color: #007bff;
+
+}
+
+.btn-info:hover {
+    background-color: #0067d4;
+}
+
+.btn-monitor-ctrl:focus {
+    border: 1px solid rgb(1, 233, 255, 1.0);
+    outline: 0;
+    /* outline: rgb(1,233,255,1.0) solid thin;; */
+}
+
+.div-btn-ctrl-groups {
+    position: relative;
+    top: -3em;
+    left: 7em;
+    width: 30em;
+    height: 3em;
+}
+
+.btn-remote-ctrl {
+    position: absolute;
+    top: 0em;
+    left: 0em;
+}
+
+.btn-fanchongxi {
+    position: absolute;
+    top: 0em;
+    left: 6.5em;
+}
+
+.btn-emergency {
+    position: absolute;
+    top: 0em;
+    left: 13em;
+}
+
+.btn-valve {
+    position: absolute;
+    top: 0em;
+    left: 19.5em;
+}
+
+.btn-filter {
+    position: absolute;
+    top: 5em;
+    left: 8em;
+    display: none;
+}
+
+.btn-remote-ctrl-open {
+    background-image: url('/public/images/btn-remotecontrol2.png');
+}
+
+.btn-remote-ctrl-close {
+    background-image: url('/public/images/btn-remotecontrol-close.png');
+}
+
+.btn-fanchongxi-open {
+    background-image: url('/public/images/btn-fanchongxi2.png');
+}
+
+.btn-fanchongxi-close {
+    background-image: url('/public/images/btn-fanchongxi-close.png');
+}
+
+.btn-fanchongxi-disable {
+    /* background-image: url('../images/btn-fanchongxi-disable.png'); */
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-filter-open {
+    background: url("/public/images/filtering2.png") no-repeat center;
+    background-size: 100%;
+    left: 350px;
+}
+
+.btn-filter-close {
+    background-image: url('/public/images/btn-filter-close.png');
+    left: 350px;
+}
+
+.btn-filter-disable {
+    /* background-image: url('/public/images/btn-filter-disable.png'); */
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-emergency-open {
+    background-image: url('/public/images/btn-emergency-stop1.png');
+}
+
+.btn-emergency-close {
+    background-image: url('/public/images/btn-emergency-stop-close.png');
+}
+
+.btn-emergency-disable {
+    /* background-image: url('../images/btn-emergency-stop-disable.png') ; */
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-valve-open {
+    background-image: url('/public/images/btn-valve1.png');
+    margin-left: 15px;
+}
+
+.btn-valve-close {
+    background-image: url('/public/images/btn-valve-close.png');
+    margin-left: 15px;
+}
+
+.div-valve-state-common {
+    height: 9em;
+}
+
+.div-valve-state-boder-right {
+    border-right: 1px solid aliceblue;
+}
+
+.div-valve-state-boder-bottom {
+    border-bottom: 1px solid aliceblue;
+}
+
+.div-valve-state-icon {
+    height: 6em;
+    background-size: auto 4em;
+    background-color: transparent;
+    background-position-x: center;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 3.5em;
+    /* position: relative; */
+}
+
+.div-valve-state-span {
+    /* position: absolute;
+    left:4em;
+    top:3em; */
+    color: aliceblue;
+    font-size: 0.5em;
+}
+
+.btn-valve-state-common {
+    background-color: transparent;
+    height: auto;
+    min-width: 3em;
+    font-size: 0.5em;
+    color: aliceblue;
+    border-radius: 0;
+    border: 1px solid aliceblue;
+}
+
+.btn-valve-state-common:disabled {
+    color: rgb(168, 214, 255);
+    border: 1px solid rgb(168, 214, 255);
+}
+
+.btn-valve-state-common:focus {
+    outline: 0;
+}
+
+.div-zongfa-open {
+    background-image: url('/public/images/zongfa-open.png');
+}
+
+.div-zongfa-close {
+    background-image: url('/public/images/zongfa-close.png');
+}
+
+.div-fanchongxidiankong-open {
+    background-image: url('/public/images/ele-motor-open.png');
+}
+
+.div-fanchongxidiankong-close {
+    background-image: url('/public/images/ele-motor-close.png');
+}
+
+.div-fanbandianji-open {
+    background-image: url('/public/images/motor-open.png');
+}
+
+.div-fanbandianji-close {
+    background-image: url('/public/images/motor-close.png');
+}
+
+.div-jiayaotongyewei-open {
+    background-image: url('/public/images/yao-open.png');
+}
+
+.div-jiayaotongyewei-close {
+    background-image: url('/public/images/yao-close.png');
+}
+
+.div-shoutongfanchongxi-open {
+    background-image: url('/public/images/fanchongxi-state-open.png');
+}
+
+.div-shoutongfanchongxi-close {
+    background-image: url('/public/images/fanchongxi-state-close.png');
+}
+
+.div-dingshifanchongjiange-open {
+    background-image: url('/public/images/fanchongxi-clock-open.png');
+}
+
+.div-dingshifanchongjiange-close {
+    background-image: url('/public/images/fanchongxi-clock-close.png');
+}
+
+.div-fanchongxidiandongqifa-open {
+    background-image: url('/public/images/qifa-open.png');
+}
+
+.div-fanchongxidiandongqifa-close {
+    background-image: url('/public/images/qifa-close.png');
+}
+
+.div-jinshuidiankongfamen-open {
+    background-image: url('/public/images/input-valve-open.png');
+}
+
+.div-jinshuidiankongfamen-close {
+    background-image: url('/public/images/input-valve-close.png');
+}
+
+.div-chushuidiankongfamen-open {
+    background-image: url('/public/images/ouput-valve-open.png');
+}
+
+.div-chushuidiankongfamen-close {
+    background-image: url('/public/images/ouput-valve-close.png');
+}

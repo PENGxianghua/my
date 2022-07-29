@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/mycss/waterplant.css">
+    <link rel="stylesheet" type="text/css" href="/public/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="/public/jsgrid/jsgrid.min.css">
+    <link rel="stylesheet" href="/public/jsgrid/jsgrid-theme.min.css">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0 0 0 0;
+            overflow: hidden hidden;
+        }
+
+        body {
+            background: linear-gradient(to bottom, rgb(121, 111, 190) 0%, rgb(71, 122, 164) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="water_plant_bg"></div>
+    <div class="container-fluid">
+        <div class="row div-title">
+            <div class="col text-center">
+                <strong id="time_text" class="time-strong">2022-1-4 19:45</strong>
+            </div>
+            <div class="col-6 text-center">
+                <strong id="title_text" class="title-strong"><%= title %></strong>
+            </div>
+            <div class="col text-center">
+                <div class="div-circle"><button id="closeBtn" class="btn-circle"><a href="http://127.0.0.1:3000">退出</a></button></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- <div id="div_device1_yulv" class="div-1-4" style="width: 600px;height: 600px;"></div> -->
+            <div class="col div-flow div-monitor">
+                <div class="div-more-row">
+                    <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('flow')">
+                        <img class="img-more" src="/public/images/more_icon.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-5 div-flow-param">
+                        <span class="span-unit">单位:m<sup>2</sup>/h</span>
+                        <strong id="flow-input" class="strong-flow-input">200</strong>
+                        <strong id="flow-output1" class="strong-flow-output1">56</strong>
+                        <strong id="flow-output2" class="strong-flow-output2">78</strong>
+                        <img class="img-flow-input" src="/public/images/water_input_icon.png" />
+                        <img class="img-flow-output1" src="/public/images/water_output_icon.png" />
+                        <img class="img-flow-output2" src="/public/images/water_output_icon.png" />
+                        <div class="flow-split-line-horizontal1"></div>
+                        <div class="flow-split-line-vertical1"></div>
+                        <div class="flow-split-line-horizontal2"></div>
+                        <div class="flow-split-line-horizontal3"></div>
+                    </div>
+                    <div class="col-6">
+                        <div id='div_flow_chart' class="div-1-4"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col div-turbidity div-monitor">
+                <div class="div-more-row">
+                    <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('turbidity')">
+                        <img class="img-more" src="/public/images/more_icon.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-5 div-turbidity-param">
+                        <span class="span-unit">单位:ppm</span>
+                        <span class="span-jinkou">进口</span>
+                        <span class="span-zhongbu">中部</span>
+                        <span class="span-chukou">出口</span>
+                        <strong id="turbidity-input" class="strong-turbidity-input">100</strong>
+                        <strong id="turbidity-middle" class="strong-turbidity-middle">86</strong>
+                        <strong id="turbidity-output" class="strong-turbidity-output">24</strong>
+                        <div class="turbidity-split-line-horizontal1"></div>
+                        <div class="turbidity-split-line-vertical1"></div>
+                        <div class="turbidity-split-line-horizontal2"></div>
+                        <div class="turbidity-split-line-vertical2"></div>
+                        <div class="turbidity-split-line-horizontal3"></div>
+                    </div>
+                    <div class="col-6">
+                        <div id='div_turbidity_chart' class="div-1-4"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="row"> 
+            <div class="col">
+                <div class="row div-temp div-monitor">
+                    <div class="div-more-row">
+                        <a id="device_temp_more" class="a-more-row" href="javascript:void(0)"
+                            onclick="openmoreHistoryDlg('temp')">
+                            <img class="img-more" src="/public/images/more_icon.png" />
+                        </a>
+                    </div>
+
+                    <div class="col"> 
+                        <div id="div_device1_temp" class="div-1-4"></div>
+                    </div>
+                    <div class="col">
+                        <div id="div_device2_temp" class="div-1-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 ">
+               
+
+            </div>
+            <div class="col">
+                <div class="row div-yulv div-monitor">
+                    <div class="div-more-row">
+                        <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('yulv')">
+                            <img class="img-more" src="/public/images/more_icon.png" />
+                        </a>
+                    </div>
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device1_yulv" class="div-1-4 div-battery"></div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device2_yulv" class="div-1-4 div-battery"></div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- <div id="div_device1_yulv" class="div-1-4" style="width: 600px;height: 600px;"></div> -->
+            <div class="col div-liquid-level div-monitor">
+                <div class="div-more-row">
+                    <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('liquid_level')">
+                        <img class="img-more" src="/public/images/more_icon.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div id="div_device1_liquid_level" class="div-1-4 div-liquid"></div>
+                    </div>
+                    <!-- <div class="col">
+                        <div id="div_device2_temp" class="div-1-4"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-5">
+
+                <div class="row div-top-middle">
+                    <div class="humidity">
+                        <p class="humidity-value">325</p>
+                        <p class="humidity-name">浊度</p>
+                    </div>
+                    <div class="middle-line"></div>
+                    <div class="washing-time">
+                        <p class="washing-time-time">72h</p>
+                        <p class="washing-time-name">冲洗时间</p>
+                    </div>
+                    <div class="wash-filter-state">
+                        <div class="washing-state1"></div>
+                        <div class="filtering-state1">
+                        </div>
+                        <div class="washing-state2"></div>
+                        <div class="filtering-state2"></div>
+                    </div>
+                    <div class="div-btn-ctrl-groups">
+                        <button id="btn_remote_ctrl" class="btn-monitor-ctrl btn-remote-ctrl btn-remote-ctrl-open"></button>
+                        <button id="btn_fanchongxi" class="btn-monitor-ctrl btn-fanchongxi btn-fanchongxi-open"></button>
+                        <button id="btn_emergency" class="btn-monitor-ctrl btn-emergency btn-emergency-open"></button>
+                        <button id="btn_valve_state" class="btn-monitor-ctrl btn-valve btn-valve-open"></button>
+                        <button id="btn_filter" class="btn-monitor-ctrl btn-filter btn-filter-open">
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col div-hp div-monitor">
+                <div class="div-more-row">
+                    <a class="a-more-row" href="javascript:void(0)" onclick="openmoreHistoryDlg('ph')">
+                        <img class="img-more" src="/public/images/more_icon.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device1_hp" class="div-1-4"></div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col">
+                        <!-- <div style="width: 50%;"> -->
+                        <div id="div_device2_hp" class="div-1-4"></div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-12 div-pressure-current div-monitor">
+                <div class="div-more-row">
+                    <a id="device_temp_more" class="a-more-row" href="javascript:void(0)"
+                        onclick="openmoreHistoryDlg('temp')">
+                        <img class="img-more" src="/public/images/more_icon.png" />
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="div-pressure-curren-param">
+                        <div class="pressure-curren-param-box" id="gqyl">
+                            <div class="pressure-curren-img gas-img" id="gqyl-img"></div>
+                            <p class="pressure-curren-value" id="gqyl-value">100<span class="value-unit"
+                                    id="gqyl-unit">MPa</span></p>
+                            <p class="pressure-curren-name ">供气压力</p>
+                        </div>
+                        <div class="pressure-curren-param-box" id="ysyl">
+                            <div class="pressure-curren-img water-img" id="ysyl-img"></div>
+                            <p class="pressure-curren-value" id="ysyl-value">100<span class="value-unit"
+                                    id="ysyl-img">MPa</span></p>
+                            <p class="pressure-curren-name">原水压力</p>
+                        </div>
+                        <div class="pressure-curren-param-box" id="dcyl">
+                            <div class="pressure-curren-img pump-img" id="dcyl-img"></div>
+                            <p class="pressure-curren-value" id="dcyl-value">100<span class="value-unit"
+                                    id="dcyl-unit">MPa</span></p>
+                            <p class="pressure-curren-name">大冲洗水泵压力</p>
+                        </div>
+                        <div class="pressure-curren-param-box" id="dcdl">
+                            <div class="pressure-curren-img pump-img" id="dcdl-img"></div>
+                            <p class="pressure-curren-value" id="dcdl-value">10.2<span class="value-unit"
+                                    id="dcdl-unit">A</span></p>
+                            <p class="pressure-curren-name">大冲洗水泵压</p>
+                        </div>
+                        <div class="pressure-curren-param-box" id="xcyl">
+                            <div class="pressure-curren-img pump-img" id="xcyl-img"></div>
+                            <p class="pressure-curren-value" id="xcyl-value">150
+                                <span class="value-unit" id="xcyl-unit">MPa</span>
+                            </p>
+                            <p class="pressure-curren-name">小冲洗水泵压</p>
+                        </div>
+                        <div class="pressure-curren-param-box" id="xcdl">
+                            <div class="pressure-curren-img pump-img" id="xcdl-img"></div>
+                            <p class="pressure-curren-value" id="xcdl-value">5.5<span class="value-unit"
+                                    id="xcdl-unit">A</span></p>
+                            <p class="pressure-curren-name">大冲洗水泵压</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更多窗口 -->
+    <div class="modal fade" id="moreHistoryDlg" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content div-dlg-content">
+                <div class="modal-header div-dlg-head">
+                    <h5 class="modal-title h5-dlg-title" id="staticBackdropLabel">更多数据</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="span-dlg-close" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="nav flex-column nav-pills" id="v-pills-more-tab" role="tablist"
+                                    aria-orientation="vertical">
+                                    <a class="nav-link a-tab-nav" id="v-pills-temp1-tab" data-toggle="pill"
+                                        href="#temp1_tab" role="tab" aria-controls="temp1_tab"
+                                        aria-selected="true">温度1</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-temp2-tab" data-toggle="pill"
+                                        href="#temp2_tab" role="tab" aria-controls="temp2_tab"
+                                        aria-selected="false">温度2</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-liquid_level-tab" data-toggle="pill"
+                                        href="#liquid_level_tab" role="tab" aria-controls="liquid_level_tab"
+                                        aria-selected="false">液位</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-jinshuiliang-tab" data-toggle="pill"
+                                        href="#jinshuiliang_tab" role="tab" aria-controls="jinshuiliang_tab"
+                                        aria-selected="false">进水量</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-chushuiliang1-tab" data-toggle="pill"
+                                        href="#chushuiliang1_tab" role="tab" aria-controls="chushuiliang1_tab"
+                                        aria-selected="false">出水量1</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-chushuiliang2-tab" data-toggle="pill"
+                                        href="#chushuiliang2_tab" role="tab" aria-controls="chushuiliang2_tab"
+                                        aria-selected="false">出水量2</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-zhuodu1-tab" data-toggle="pill"
+                                        href="#zhuodu1_tab" role="tab" aria-controls="zhuodu1_tab"
+                                        aria-selected="false">浊度1</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-zhuodu2-tab" data-toggle="pill"
+                                        href="#zhuodu2_tab" role="tab" aria-controls="zhuodu2_tab"
+                                        aria-selected="false">浊度2</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-zhuodu3-tab" data-toggle="pill"
+                                        href="#zhuodu3_tab" role="tab" aria-controls="zhuodu3_tab"
+                                        aria-selected="false">浊度3</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-yulv1-tab" data-toggle="pill"
+                                        href="#yulv1_tab" role="tab" aria-controls="yulv1_tab"
+                                        aria-selected="false">余氯1</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-yulv2-tab" data-toggle="pill"
+                                        href="#yulv2_tab" role="tab" aria-controls="yulv2_tab"
+                                        aria-selected="false">余氯2</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-ph1-tab" data-toggle="pill"
+                                        href="#ph1_tab" role="tab" aria-controls="ph1_tab" aria-selected="false">PH1</a>
+                                    <a class="nav-link a-tab-nav" id="v-pills-ph2-tab" data-toggle="pill"
+                                        href="#ph2_tab" role="tab" aria-controls="ph2_tab" aria-selected="false">PH2</a>
+
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade show active" id="temp1_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-temp1-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_temp1" /></div>
+                                            <div class="col-7"><button id="query_btn_temp1"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_temp1_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_temp1_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="temp2_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-temp2-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_temp2" /></div>
+                                            <div class="col-7"><button id="query_btn_temp2"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_temp2_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_temp2_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="liquid_level_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-liquid_level-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_liquid" /></div>
+                                            <div class="col-7"><button id="query_btn_liquid"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_liquid_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_liquid_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="jinshuiliang_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-jinshuiliang-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_jinshuiliang" /></div>
+                                            <div class="col-7"><button id="query_btn_jinshuiliang"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_jinshuiliang_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_jinshuiliang_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="chushuiliang1_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-chushuiliang1-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_chushuiliang1" /></div>
+                                            <div class="col-7"><button id="query_btn_chushuiliang1"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_chushuiliang1_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_chushuiliang1_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="chushuiliang2_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-chushuiliang2-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_chushuiliang2" /></div>
+                                            <div class="col-7"><button id="query_btn_chushuiliang2"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_chushuiliang2_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_chushuiliang2_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="zhuodu1_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-zhuodu1-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_zhuodu1" /></div>
+                                            <div class="col-7"><button id="query_btn_zhuodu1"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu1_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu1_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="zhuodu2_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-zhuodu2-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_zhuodu2" /></div>
+                                            <div class="col-7"><button id="query_btn_zhuodu2"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu2_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu2_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="zhuodu3_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-zhuodu3-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_zhuodu3" /></div>
+                                            <div class="col-7"><button id="query_btn_zhuodu3"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu3_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_zhuodu3_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="yulv1_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-yulv1-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_yulv1" /></div>
+                                            <div class="col-7"><button id="query_btn_yulv1"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_yulv1_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_yulv1_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="yulv2_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-yulv2-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_yulv2" /></div>
+                                            <div class="col-7"><button id="query_btn_yulv2"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_yulv2_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_yulv2_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="ph1_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-ph1-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_ph1" /></div>
+                                            <div class="col-7"><button id="query_btn_ph1"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_ph1_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_ph1_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="ph2_tab" role="tabpanel"
+                                        aria-labelledby="v-pills-ph2-tab">
+                                        <!--搜索条件-->
+                                        <div class="row">
+                                            <div class="col-1 text-center"><span class="span-daterangepick">时间</span>
+                                            </div>
+                                            <div class="col-4"><input type="text" class="form-control"
+                                                    id="queryDateRange_ph2" /></div>
+                                            <div class="col-7"><button id="query_btn_ph2"
+                                                    class="btn btn-info">查询</button></div>
+                                        </div>
+                                        <!--曲线图-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_ph2_chart' class="div-dlg-chart"></div>
+                                            </div>
+                                        </div>
+                                        <!--表格-->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id='div_history_ph2_table' class="div-dlg-table"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认对话框 -->
+    <div class="modal fade" id="confirmDlg" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fix">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">确认</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id="confirm_text">确定执行。。。吗？</span>
+                    <form name="e_stop"></form>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirm_btn" type="button" class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery/jquery.min.js"></script>
+    <script src="/public/bootstrap/bootstrap.min.js"></script>
+    <script src="/public/echart/echarts.min.js"></script>
+    <script src='/public/echart-liquid/echarts-liquidfill.min.js'></script>
+    <script type="text/javascript" src="/public/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="/public/daterangepicker/daterangepicker.min.js"></script>
+    <script src='/public/jsgrid/jsgrid.min.js'></script>
+
+    <script src='/public/myjs/device_temp_chart.js'></script>
+    <script src='/public/myjs/device_yulv_chart.js'></script>
+    <script src='/public/myjs/device_liquid_level_chart.js'></script>
+    <script src='/public/myjs/device_ph_chart.js'></script>
+    <script src='/public/myjs/device_turbidity_chart.js'></script>
+    <script src='/public/myjs/device_flow_chart.js'></script>
+    <!-- <script src='./asset/myjs/history_chart.js'></script>
+<script src='./asset/myjs/history_jsgrid.js'></script> -->
+    <script src='/public/myjs/history_tab_ctrl.js'></script>
+    <script src='/public/myjs/confirm_dlg.js'></script>
+
+
+
+    <script>
+        var device_temp_charts = new devcie_temp_chart('div_device1_temp', 'div_device2_temp');
+
+        var device_yulv_charts = new device_yulv_chart('div_device1_yulv', 'div_device2_yulv');
+
+        var device_liquid_level_charts = new devcie_liquid_level_chart('div_device1_liquid_level');
+
+        var device_ph_charts = new device_ph_chart('div_device1_hp', 'div_device2_hp');
+
+        var device_flow_charts = new device_flow_chart('div_flow_chart');
+
+        var device_turbidity_charts = new device_turbidity_chart('div_turbidity_chart');
+
+        
+
+        function getDtuShow() {
+            $.ajax({
+                type: 'POST',
+                url: "/v1/restfull",
+                data: { version: "dg.01", rid: 1, type: "get_dtu_show", para: "{}" },
+                success: function (data, textStatus) {
+                    if (data.error != 0) {
+                        alert('刷新监控参数失败');
+                        return;
+                    }
+                    var result = data;
+                    device_temp_charts.device1_temp_option.series[0].data = [{ value: result.wendu1, name: '设备11' }]
+                    device_temp_charts.device1_temp_Chart.setOption(device_temp_charts.device1_temp_option);
+                    device_temp_charts.device2_temp_option.series[0].data = [{ value: result.wendu2, name: '设备22' }]
+                    device_temp_charts.device2_temp_Chart.setOption(device_temp_charts.device2_temp_option);
+                    device_yulv_charts.device1_yulv_option.series[0].data = [formatFloatPrecision(result.yulv1)]
+                    device_yulv_charts.device1_yulv_Chart.setOption(device_yulv_charts.device1_yulv_option);
+                    device_yulv_charts.device2_yulv_option.series[0].data = [formatFloatPrecision(result.yulv2)]
+                    device_yulv_charts.device2_yulv_Chart.setOption(device_yulv_charts.device2_yulv_option);
+                    device_ph_charts.device1_ph_option.series[0].data = [{ value: formatFloatPrecision(result.ph1), name: '设备1' }]
+                    device_ph_charts.device1_ph_Chart.setOption(device_ph_charts.device1_ph_option);
+                    device_ph_charts.device2_ph_option.series[0].data = [{ value: formatFloatPrecision(result.ph2), name: '设备2' }]
+                    device_ph_charts.device2_ph_Chart.setOption(device_ph_charts.device2_ph_option);
+                    device_liquid_level_charts.device1_liquid_level_option.series[0].data = [formatFloatPrecision(result.yewei)]
+                    device_liquid_level_charts.device1_liquid_level_Chart.setOption(device_liquid_level_charts.device1_liquid_level_option)
+                    $('#flow-input').text(formatFloatPrecision(result.shui[0]));
+                    $('#flow-output1').text(formatFloatPrecision(result.shui[1]));
+                    $('#flow-output2').text(formatFloatPrecision(result.shui[2]));
+                    $('#turbidity-input').text(formatFloatPrecision(result.zhuodu[0]));
+                    $('#turbidity-middle').text(formatFloatPrecision(result.zhuodu[1]));
+                    $('#turbidity-output').text(formatFloatPrecision(result.zhuodu[2]));
+
+                    device_flow_charts.update_data(result.shui[0], result.shui[1], result.shui[2]);
+                    device_turbidity_charts.update_data(result.zhuodu[0], result.zhuodu[1], result.zhuodu[2]);
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert('网络或服务器错误');
+                },
+                dataType: "json"
+            });
+        }
+
+        function PressureCurren(id_name, data) {
+            var box = document.getElementById(id_name);
+            box.className = "pressure-curren-param-box"
+
+            var img = document.getElementById(id_name + "-img")
+            if (id_name == "gqyl") {
+                img.className = "pressure-curren-img gas-img"
+            }
+            else if (id_name == "ysyl") {
+                img.className = "pressure-curren-img water-img"
+            }
+            else {
+                img.className = "pressure-curren-img pump-img"
+            }
+
+            var value = document.getElementById(id_name + "-value")
+            value.className = "pressure-curren-value"
+            if (id_name == "dcdl" || id_name == "xcdl") {
+                value.innerHTML = data + '<span class="value-unit"id="dcyl-unit">A</span>'
+            }
+            else {
+                value.innerHTML = data + '<span class="value-unit"id="dcyl-unit">MPa</span>'
+            }
+        }
+
+        function PressureCurrenWarn(id_name) {
+            var box = document.getElementById(id_name);
+            box.className = "pressure-curren-param-box pressure-curren-param-alarm"
+            var img = document.getElementById(id_name + "-img")
+            img.className = "pressure-curren-img alarm-img"
+            var value = document.getElementById(id_name + "-value")
+            value.className = "pressure-curren-value alarm-value"
+        }
+
+        function formatFloatPrecision(num_str) {
+            return Number(num_str).toFixed(1);
+        }
+
+        var off_flag = false; //当值变为true时，后台强制关闭程序
+        
+
+        var history_temp1_tab = null;
+        var history_temp2_tab = null;
+        var history_liquid_tab = null;
+        var history_zhuodu1_tab = null;
+        var history_zhuodu2_tab = null;
+        var history_zhuodu3_tab = null;
+        var history_yulv1_tab = null;
+        var history_yulv2_tab = null;
+        var history_ph1_tab = null;
+        var history_ph2_tab = null;
+        var history_jinshuiliang_tab = null;
+        var history_chushuiliang1_tab = null;
+        var history_chushuiliang2_tab = null;
+
+        function openmoreHistoryDlg(tabname) {
+            $('#moreHistoryDlg').modal();
+            switch (tabname) {
+                case 'flow':
+                    $('#v-pills-jinshuiliang-tab').tab('show');
+                    break;
+                case 'liquid_level':
+                    $('#v-pills-liquid_level-tab').tab('show');
+                    break;
+                case 'turbidity':
+                    $('#v-pills-zhuodu1-tab').tab('show');
+                    break;
+                case 'yulv':
+                    $('#v-pills-yulv1-tab').tab('show');
+                    break;
+                case 'ph':
+                    $('#v-pills-ph1-tab').tab('show');
+                    break;
+                case 'temp':
+                    $('#v-pills-temp1-tab').tab('show');
+                    break;
+                default:
+                    $('#v-pills-temp1-tab').tab('show');
+            }
+
+        }
+
+        function openValveStateDlg() {
+            $('#valveStateDlg').modal();
+        }
+
+        var confirmdlg_inst = null;
+
+        var remoteCtrl_state = false;
+        var fanchongxi_state = false;
+        var filter_state = false;
+        var emergency_state = false;
+
+
+        function setCtrlCommand(command, operateName) {
+            var param = { 'command': command };
+            $.ajax({
+                type: 'POST',
+                url: "http://47.113.223.102:20201/v4/restful",
+                data: { version: "dg.01", rid: 1, type: "control_command", para: JSON.stringify(param) },
+                success: function (data, textStatus) {
+                    if (data.error_code != 0) {
+                        alert(operateName + '-发送失败');
+                        return;
+                    }
+                    alert(operateName + '-命令已发送');
+                    return;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // alert(operateName+'-过程中网络或服务器错误');
+                },
+                dataType: "json"
+            });
+        }
+
+
+        /**
+         * 设置div或button状态函数,disable优先级比open高
+         * */
+        function setValveStateIcon(targetId, class_prefix, disable, open) {
+            if (disable) {
+                // $('#'+targetId).removeClass(class_prefix+'-open');
+                // $('#'+targetId).removeClass(class_prefix+'-close');
+                $('#' + targetId).addClass(class_prefix + '-disable');
+                // $('#'+targetId).attr("disabled","true");
+            } else {
+                $('#' + targetId).removeClass(class_prefix + '-disable');
+                // $('#'+targetId).removeAttr("disabled");
+            }
+
+            if (open) {
+                $('#' + targetId).removeClass(class_prefix + '-close');
+                $('#' + targetId).addClass(class_prefix + '-open');
+            } else {
+                $('#' + targetId).removeClass(class_prefix + '-open');
+                $('#' + targetId).addClass(class_prefix + '-close');
+            }
+
+
+        }
+
+        function setValveStateBtn(targetId, enable) {
+            $('#' + targetId).attr("disabled", enable);
+        }
+
+        function getNowTime() {
+            let now = new Date();
+            let year = now.getFullYear(); //获取完整的年份(4位,1970-????)
+            let month = now.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+            let today = now.getDate(); //获取当前日(1-31)
+            let hour = now.getHours(); //获取当前小时数(0-23)
+            let minute = now.getMinutes(); //获取当前分钟数(0-59)
+            let second = now.getSeconds(); //获取当前秒数(0-59)
+            let nowTime = '';
+            nowTime = year + '-' + fillZero(month) + '-' + fillZero(today) + ' ' + fillZero(hour) + ':' +
+                fillZero(minute) + ':' + fillZero(second);
+            return nowTime;
+        };
+
+        function fillZero(str) {
+            var realNum;
+            if (str < 10) {
+                realNum = '0' + str;
+            } else {
+                realNum = str;
+            }
+            return realNum;
+        }
+
+
+
+        $(function () {
+          $('#v-pills-jinshuiliang-tab').on('shown.bs.tab', function (event) {
+                if (history_jinshuiliang_tab == null) {
+                    history_jinshuiliang_tab = new history_tab_ctrl('queryDateRange_jinshuiliang', 'div_history_jinshuiliang_chart', 'div_history_jinshuiliang_table', 'query_btn_jinshuiliang', 'jinshuiliang');
+                } //进水量
+            });
+            $('#v-pills-chushuiliang1-tab').on('shown.bs.tab', function (event) {
+                if (history_chushuiliang1_tab == null) {
+                    history_chushuiliang1_tab = new history_tab_ctrl('queryDateRange_chushuiliang1', 'div_history_chushuiliang1_chart', 'div_history_chushuiliang1_table', 'query_btn_chushuiliang1', 'chushuiliang1');
+                } //进水量
+            });
+            $('#v-pills-chushuiliang2-tab').on('shown.bs.tab', function (event) {
+                if (history_chushuiliang2_tab == null) {
+                    history_chushuiliang2_tab = new history_tab_ctrl('queryDateRange_chushuiliang2', 'div_history_chushuiliang2_chart', 'div_history_chushuiliang2_table', 'query_btn_chushuiliang2', 'chushuiliang2');
+                } //进水量
+
+            });
+
+            $('#v-pills-liquid_level-tab').on('shown.bs.tab', function (event) {
+
+                if (history_liquid_tab == null) {
+                    history_liquid_tab = new history_tab_ctrl('queryDateRange_liquid', 'div_history_liquid_chart', 'div_history_liquid_table', 'query_btn_liquid', 'yewei');
+                }
+
+            });
+
+            $('#v-pills-zhuodu1-tab').on('shown.bs.tab', function (event) {
+                if (history_zhuodu1_tab == null) {
+                    history_zhuodu1_tab = new history_tab_ctrl('queryDateRange_zhuodu1', 'div_history_zhuodu1_chart', 'div_history_zhuodu1_table', 'query_btn_zhuodu1', 'zhuodu1');
+                }
+            });
+            $('#v-pills-zhuodu2-tab').on('shown.bs.tab', function (event) {
+                if (history_zhuodu2_tab == null) {
+                    history_zhuodu2_tab = new history_tab_ctrl('queryDateRange_zhuodu2', 'div_history_zhuodu2_chart', 'div_history_zhuodu2_table', 'query_btn_zhuodu2', 'zhuodu2');
+                }
+            });
+            $('#v-pills-zhuodu3-tab').on('shown.bs.tab', function (event) {
+                if (history_zhuodu3_tab == null) {
+                    history_zhuodu3_tab = new history_tab_ctrl('queryDateRange_zhuodu3', 'div_history_zhuodu3_chart', 'div_history_zhuodu3_table', 'query_btn_zhuodu3', 'zhuodu3');
+                }
+            });
+
+            $('#v-pills-yulv1-tab').on('shown.bs.tab', function (event) {
+                if (history_yulv1_tab == null) {
+                    history_yulv1_tab = new history_tab_ctrl('queryDateRange_yulv1', 'div_history_yulv1_chart', 'div_history_yulv1_table', 'query_btn_yulv1', 'yulv1');
+                }
+            });
+            $('#v-pills-yulv2-tab').on('shown.bs.tab', function (event) {
+                if (history_yulv2_tab == null) {
+                    history_yulv2_tab = new history_tab_ctrl('queryDateRange_yulv2', 'div_history_yulv2_chart', 'div_history_yulv2_table', 'query_btn_yulv2', 'yulv2');
+                }
+            });
+            $('#v-pills-yulv3-tab').on('shown.bs.tab', function (event) {
+                if (history_yulv3_tab == null) {
+                    history_yulv3_tab = new history_tab_ctrl('queryDateRange_yulv3', 'div_history_yulv3_chart', 'div_history_yulv3_table', 'query_btn_yulv3', 'yulv3');
+                }
+            });
+
+            $('#v-pills-ph1-tab').on('shown.bs.tab', function (event) {
+                if (history_ph1_tab == null) {
+                    history_ph1_tab = new history_tab_ctrl('queryDateRange_ph1', 'div_history_ph1_chart', 'div_history_ph1_table', 'query_btn_ph1', "ph1");
+                }
+            });
+            $('#v-pills-ph2-tab').on('shown.bs.tab', function (event) {
+                if (history_ph2_tab == null) {
+                    history_ph2_tab = new history_tab_ctrl('queryDateRange_ph2', 'div_history_ph2_chart', 'div_history_ph2_table', 'query_btn_ph2', "ph2");
+                }
+            });
+
+            $('#v-pills-temp1-tab').on('shown.bs.tab', function (event) {
+                if (history_temp1_tab == null) {
+                    history_temp1_tab = new history_tab_ctrl('queryDateRange_temp1', 'div_history_temp1_chart', 'div_history_temp1_table', 'query_btn_temp1', 'wendu1');
+                }
+            });
+
+            $('#v-pills-temp2-tab').on('shown.bs.tab', function (event) {
+                if (history_temp2_tab == null) {
+                    history_temp2_tab = new history_tab_ctrl('queryDateRange_temp2', 'div_history_temp2_chart', 'div_history_temp2_table', 'query_btn_temp2', 'wendu2');
+                }
+            });
+
+            confirmdlg_inst = new confirmDlg("confirmDlg", "confirm_text", "confirm_btn");
+
+            //设置时间
+            $("#time_text").text(getNowTime());
+            setInterval(function () {
+                $("#time_text").text(getNowTime());
+            }, 1000);
+            //定时向服务器请求监控数据
+            getDtuShow();
+            
+            setInterval(function () {
+                getDtuShow();
+            }
+                , 5000);
+
+
+        });
+
+    </script>
+</body>
+
+</html>
